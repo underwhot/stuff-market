@@ -1,0 +1,51 @@
+:root {
+  --bg: #212123;
+  --dark: #191919;
+  --dark-sea: #576067;
+  --grey: #b8b8b8;
+  --white: #fff;
+  --violet: #8b57c6;
+  --violet-dark: #6c3eb8;
+  --light: #f6f6f7;
+  --sea: #616e74;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+}
+
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  @supports (overflow: clip) {
+    overflow: clip;
+  }
+  > main {
+    flex: 1 1 auto;
+  }
+  > * {
+    min-width: 0;
+  }
+}
+
+.ibg {
+  position: relative;
+}
+
+.ibg > img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.icon {
+  width: 12px;
+  height: 12px;
+}
