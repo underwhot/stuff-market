@@ -20,7 +20,7 @@ export const Header = () => {
             className={styles.avatar}
             style={{ backgroundImage: `url(${AVATAR})` }}
           ></div>
-          <div className={styles.username}></div>
+          <div className={styles.username}>Artem Petrovskiy</div>
         </div>
 
         <form className={styles.form}>
