@@ -1,7 +1,28 @@
 import { Link } from 'react-router-dom';
 import styles from './Products.module.css';
+import correctImagePath from '../../utils/correctImagePath';
 
-export const Products = ({ title, style = {}, products = [], amount }) => {
+type Product = {
+  id: number;
+  images: string[];
+  title: string;
+  cat: string;
+  price: number;
+};
+
+type ProductsProps = {
+  title: string;
+  style: object;
+  products: Product[];
+  amount: number;
+};
+
+export const Products = ({
+  title,
+  style = {},
+  products = [],
+  amount,
+}: ProductsProps) => {
   const filtredProducts = products.filter((_, i) => i < amount);
 
   return (
@@ -14,9 +35,11 @@ export const Products = ({ title, style = {}, products = [], amount }) => {
             key={product.id}
             className={styles.product}
           >
-             <div
+            <div
               className={styles.image}
-              style={{ backgroundImage: `url(${product.images[1]})` }}
+              style={{
+                backgroundImage: `url(${correctImagePath(product.images[1])})`,
+              }}
             />
             <div className={styles.wrapper}>
               <h3 className={styles.title}>{product.title}</h3>

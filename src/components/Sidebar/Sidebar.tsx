@@ -1,14 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import {
-  selectCategory,
+  selectCategories,
   selectIsLoading,
 } from '../../redux/slices/categoriesSlice';
 
 import styles from './Sidebar.module.css';
 
 export const Sidebar = () => {
-  const categories = useSelector(selectCategory);
+  const categories = useSelector(selectCategories);
   const isLoading = useSelector(selectIsLoading);
 
   return (

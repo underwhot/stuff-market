@@ -51,7 +51,7 @@ export const categoriesSlice = createSlice({
 
 // export const {  } = categoriesSlice.actions;
 
-export const selectCategory = (state: RootState) => state.categories.list;
+export const selectCategories = (state: RootState) => state.categories.list;
 export const selectIsLoading = (state: RootState) => state.categories.isLoading;
 
 export default categoriesSlice.reducer;
