@@ -17,14 +17,14 @@ export const Sidebar = () => {
       <nav>
         <ul className={styles.menu}>
           {categories.map((category) => (
-            <li key={category.id}>
+            <li key={category}>
               <NavLink
-                to={`/categories/${category.id}`}
+                to={`/categories/${category}`}
                 className={({ isActive }) =>
                   `${styles.link} ${isActive ? styles.active : ''}`
                 }
               >
-                {category.name}
+                {category}
               </NavLink>
             </li>
           ))}

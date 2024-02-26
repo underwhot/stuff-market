@@ -30,7 +30,7 @@ export const Home = () => {
     <>
       <Poster />
       <Products products={products} amount={10} title="Trending" />
-      <Categories categories={categories} amount={5} title="Worth seeing" />
+      <Categories categories={categories} amount={4} title="Worth seeing" />
       <Banner />
       <Products products={filtredProducts} amount={5} title="Lestt than 50$" />
     </>

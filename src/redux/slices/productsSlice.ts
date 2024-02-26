@@ -56,10 +56,7 @@ export const productsSlice = createSlice({
     },
     setRelatedProducts: (state, action) => {
       const list = state.list.filter(
-        (product) =>
-          product.category.id === action.payload &&
-          product.title !== 'New Product' &&
-          product.price !== 1
+        (product) => product.category === action.payload
       );
 
       state.related = shuffleArray(list);

@@ -1,6 +1,6 @@
 import styles from './Home.module.css';
 
-import BG from '/public/images/computer.png';
+import BG from '/images/computer.png';
 
 export const Poster = () => {
   return (

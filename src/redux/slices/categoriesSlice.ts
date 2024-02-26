@@ -15,14 +15,8 @@ export const getCategories = createAsyncThunk(
   }
 );
 
-interface Item {
-  id: number;
-  name: string;
-  image: string;
-}
-
 interface categoriesState {
-  list: Item[];
+  list: string[];
   isLoading: boolean;
 }
 

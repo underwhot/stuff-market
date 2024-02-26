@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import styles from './Products.module.css';
-import correctImagePath from '../../utils/correctImagePath';
 
 type Product = {
   id: number;
@@ -38,7 +37,7 @@ export const Products = ({
             <div
               className={styles.image}
               style={{
-                backgroundImage: `url(${correctImagePath(product.images[1])})`,
+                backgroundImage: `url(${product.image})`,
               }}
             />
             <div className={styles.wrapper}>

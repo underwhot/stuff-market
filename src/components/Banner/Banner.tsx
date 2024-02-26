@@ -1,6 +1,6 @@
 import styles from './Home.module.css';
 
-import BANNER from '../../../public/images/banner.png';
+import BANNER from '/images/banner.png';
 
 export const Banner = () => {
   return (

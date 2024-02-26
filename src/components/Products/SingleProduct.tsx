@@ -4,6 +4,7 @@ import { useGetProductQuery } from '../../redux/api/apiSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../../redux/store';
 import {
+  selectProducts,
   selectRelatedProducts,
   setRelatedProducts,
 } from '../../redux/slices/productsSlice';
@@ -18,6 +19,7 @@ export const SingleProduct = () => {
   const { data, isError, isFetching, isLoading, isSuccess } =
     useGetProductQuery({ id });
   const relatedProducts = useSelector(selectRelatedProducts);
+  const allProducts = useSelector(selectProducts);
 
   useEffect(() => {
     if (!isFetching && !isLoading && !isSuccess) {
@@ -26,9 +28,9 @@ export const SingleProduct = () => {
   }, [isFetching, isLoading, isSuccess]);
 
   useEffect(() => {
-    if (data) {
-      dispatch(setRelatedProducts(data.category.id));
-    }
+    if (!data || !allProducts) return;
+
+    dispatch(setRelatedProducts(data.category));
   }, [data]);
 
   return !data ? (
@@ -39,7 +41,7 @@ export const SingleProduct = () => {
       <Products
         products={relatedProducts}
         title="Related products"
-        amount={10}
+        amount={5}
       />
     </>
   );

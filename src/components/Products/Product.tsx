@@ -5,37 +5,36 @@ import { AppDispatch } from '../../redux/store';
 import { setAddtoCart } from '../../redux/slices/userSlice';
 
 import styles from './Product.module.css';
-import correctImagePath from '../../utils/correctImagePath';
 
 type ProductProps = {
   id: number;
   title: string;
-  images: string[];
+  image: string;
   price: number;
   description: string;
 };
 
-const SIZES = [4, 4.5, 5];
+// const SIZES = [4, 4.5, 5];
 
 export const Product = ({
   id,
   title,
-  images,
+  image,
   price,
   description,
 }: ProductProps) => {
   const dispatch = useDispatch<AppDispatch>();
-  const [currentImage, setCurrentImage] = useState('');
-  const [curretnSize, setCurretnSize] = useState(SIZES[0]);
+  // const [currentImage, setCurrentImage] = useState('');
+  // const [curretnSize, setCurretnSize] = useState(SIZES[0]);
 
-  useEffect(() => {
-    if (!images.length) return;
+  // useEffect(() => {
+  //   if (!images.length) return;
 
-    setCurrentImage(correctImagePath(images[0]));
-  }, [images]);
+  //   setCurrentImage(images[0]);
+  // }, [images]);
 
   const addToCartHandler = () => {
-    dispatch(setAddtoCart({ title, images, price, id }));
+    dispatch(setAddtoCart({ title, image, price, id }));
   };
 
   return (
@@ -43,30 +42,34 @@ export const Product = ({
       <div className={styles.images}>
         <div
           className={styles.current}
-          style={{ backgroundImage: `url(${currentImage})` }}
+          style={{ backgroundImage: `url(${image})` }}
         />
-        <div className={styles['images-list']}>
+        {/* <div
+          className={styles.current}
+          style={{ backgroundImage: `url(${currentImage})` }}
+        /> */}
+        {/* <div className={styles['images-list']}>
           {images.map((image, i) => {
             return (
               <div
                 key={i}
                 className={styles.image}
-                style={{ backgroundImage: `url(${correctImagePath(image)})` }}
+                style={{ backgroundImage: `url(${image})` }}
                 onClick={() => {
-                  setCurrentImage(correctImagePath(image));
+                  setCurrentImage(image);
                 }}
               />
             );
           })}
-        </div>
+        </div> */}
       </div>
       <div className={styles.info}>
         <h1 className={styles.title}>{title}</h1>
         <div className={styles.price}>{price}$</div>
-        <div className={styles.color}>
+        {/* <div className={styles.color}>
           <span>Color:</span> Green
-        </div>
-        <div className={styles.sizes}>
+        </div> */}
+        {/* <div className={styles.sizes}>
           <span>Sizes:</span>
           <div className={styles.list}>
             {SIZES.map((size) => (
@@ -83,7 +86,7 @@ export const Product = ({
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         <p className={styles.description}>{description}</p>
 
