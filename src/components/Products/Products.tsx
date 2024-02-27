@@ -3,7 +3,7 @@ import styles from './Products.module.css';
 
 type Product = {
   id: number;
-  images: string[];
+  image: string;
   title: string;
   cat: string;
   price: number;

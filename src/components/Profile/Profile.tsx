@@ -27,7 +27,7 @@ export const Profile = () => {
     setValues({ ...values, [name]: value });
   };
 
-  const hangleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const isNotEmpty = Object.values(values).some((val) => val);
@@ -49,7 +49,7 @@ export const Profile = () => {
       {!currentUser ? (
         <h2>You have to login</h2>
       ) : (
-        <form onSubmit={hangleSubmit} className={styles.form}>
+        <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.group}>
             <input
               onChange={handleChange}

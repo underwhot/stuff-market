@@ -16,19 +16,13 @@ export const getProducts = createAsyncThunk(
   }
 );
 
-interface CategoryItem {
-  id: number;
-  name: string;
-  image: string;
-}
-
 interface ProductItem {
   id: number;
   title: string;
   price: number;
   description: string;
-  images: string[];
-  category: CategoryItem;
+  image: string;
+  category: string;
 }
 
 interface productsState {
