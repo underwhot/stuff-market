@@ -37,7 +37,7 @@ export const Categories = ({
 
           return (
             <Link
-              to={`/category/${category}`}
+              to={`/categories/${category}`}
               key={category}
               className={styles.item}
             >

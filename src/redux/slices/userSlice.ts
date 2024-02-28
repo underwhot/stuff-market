@@ -67,6 +67,7 @@ interface Cart {
   price: number;
   image: string;
   quantity: number;
+  category: string;
 }
 
 interface CurrentUser extends CreateUser {
@@ -114,6 +115,10 @@ export const userSlice = createSlice({
       state.cart = newCart;
     },
 
+    setRemoveItem: (state, action) => {
+      state.cart = state.cart.filter(({ id }) => id !== action.payload);
+    },
+
     setToggleShowForm: (state, action) => {
       state.showForm = action.payload;
     },
@@ -135,8 +140,12 @@ export const userSlice = createSlice({
   },
 });
 
-export const { setAddtoCart, setToggleShowForm, setToggleFormType } =
-  userSlice.actions;
+export const {
+  setAddtoCart,
+  setToggleShowForm,
+  setToggleFormType,
+  setRemoveItem,
+} = userSlice.actions;
 
 export const selectCurrentUser = (state: RootState) => state.user.currentUser;
 export const selectCart = (state: RootState) => state.user.cart;

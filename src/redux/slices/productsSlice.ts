@@ -16,7 +16,7 @@ export const getProducts = createAsyncThunk(
   }
 );
 
-interface ProductItem {
+export interface ProductItem {
   id: number;
   title: string;
   price: number;

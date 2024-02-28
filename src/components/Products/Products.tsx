@@ -5,15 +5,15 @@ type Product = {
   id: number;
   image: string;
   title: string;
-  cat: string;
+  category: string;
   price: number;
 };
 
 type ProductsProps = {
   title: string;
-  style: object;
   products: Product[];
   amount: number;
+  style?: object;
 };
 
 export const Products = ({
@@ -42,7 +42,7 @@ export const Products = ({
             />
             <div className={styles.wrapper}>
               <h3 className={styles.title}>{product.title}</h3>
-              <div className={styles.cat}>{product.cat}</div>
+              <div className={styles.cat}>{product.category}</div>
               <div className={styles.info}>
                 <div className={styles.prices}>
                   <div className={styles.price}>{product.price}$</div>

@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../../redux/store';
 import {
+  selectCart,
   selectCurrentUser,
   setToggleShowForm,
 } from '../../redux/slices/userSlice';
@@ -26,8 +27,8 @@ export const Header = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const products = useSelector(selectProducts);
-
   const currentUser = useSelector(selectCurrentUser);
+  const cart = useSelector(selectCart);
   const [values, setValues] = useState({ name: 'Guest', avatar: AVATAR });
   const [searchValue, setSearchValue] = useState('');
   const [filtredProducts, setFiltredProducts] = useState<Product[] | any[]>([]);
@@ -122,7 +123,7 @@ export const Header = () => {
             <svg className={styles['icon-cart']}>
               <use xlinkHref="/sprite.svg#bag" />
             </svg>
-            <span className={styles.count}>2</span>
+            {!!cart.length && <span className={styles.count}>{cart.length}</span>}
           </Link>
         </div>
       </div>

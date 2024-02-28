@@ -98,7 +98,7 @@ export const Category = () => {
       ) : !isSuccess || !data.length || !filtredProducts.length ? (
         <div className={styles.back}>
           <span>No results</span>
-          <button>Reset</button>
+          {/* <button>Reset</button> */}
         </div>
       ) : (
         <Products

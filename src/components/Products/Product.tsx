@@ -12,6 +12,7 @@ type ProductProps = {
   image: string;
   price: number;
   description: string;
+  category: string;
 };
 
 // const SIZES = [4, 4.5, 5];
@@ -22,6 +23,7 @@ export const Product = ({
   image,
   price,
   description,
+  category,
 }: ProductProps) => {
   const dispatch = useDispatch<AppDispatch>();
   // const [currentImage, setCurrentImage] = useState('');
@@ -34,7 +36,7 @@ export const Product = ({
   // }, [images]);
 
   const addToCartHandler = () => {
-    dispatch(setAddtoCart({ title, image, price, id }));
+    dispatch(setAddtoCart({ title, image, price, id, category }));
   };
 
   return (
